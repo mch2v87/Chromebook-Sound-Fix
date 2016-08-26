@@ -1,0 +1,25 @@
+#!/bin/bash
+
+mkdir ~/Desktop/Backup
+
+cp /var/lib/alsa/asound.state ~/Desktop/Backup
+
+cp /usr/share/pulseaudio/alsa-mixer/paths/analog-output-headphones.conf ~/Desktop/Backup
+
+sudo alsa force-unload
+
+cd ~/Downloads
+
+wget https://github.com/mch2v87/Chromebook-Sound-Fix/archive/master.zip
+
+unzip master.zip
+
+cd ~/Downloads/Chromebook-Sound-Fix-master
+
+sudo cp asound.state /var/lib/alsa/
+
+sudo cp analog-output-headphones.conf /usr/share/pulseaudio/alsa-mixer/paths/
+
+echo "Please Reboot"
+
+
